@@ -1,6 +1,6 @@
 Feature: User Verification
 
-
+@wip
   Scenario: verify information about logged user
     Given I logged Bookit api as a "team-member"
     When I sent get request to "/api/users/me" endpoint
