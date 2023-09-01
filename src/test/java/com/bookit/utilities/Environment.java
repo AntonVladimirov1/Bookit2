@@ -18,14 +18,11 @@ public class Environment {
         public static final String LEADER_EMAIL;
         public static final String LEADER_PASSWORD;
 
-
     static{
         Properties properties = null;
         String environment = System.getProperty("environment") != null ? environment = System.getProperty("environment") : ConfigurationReader.getProperty("environment");
         //this field will get its value from configuration.properties file environment key /qa1 qa2 qa3
         //String environment = ConfigurationReader.getProperty("environment");
-
-
 
         try {
             //where is our file ?, path is holding that one
@@ -50,9 +47,6 @@ public class Environment {
         MEMBER_PASSWORD = properties.getProperty("team_member_password");
         LEADER_EMAIL = properties.getProperty("team_leader_email");
         LEADER_PASSWORD = properties.getProperty("team_leader_password");
-
-
-
 
 
     }

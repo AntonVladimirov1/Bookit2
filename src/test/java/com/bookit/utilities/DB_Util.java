@@ -328,7 +328,6 @@ public class DB_Util {
                     System.out.printf("%-25s", rs.getString(colIndex));
                 }
                 System.out.println();
-
             }
 
         }catch(Exception e){
@@ -352,7 +351,6 @@ public class DB_Util {
         int columnCount = getColumnCount() ;
 
         try{
-
             rs.absolute(rowNum) ;
 
             for (int colIndex = 1; colIndex <= columnCount ; colIndex++) {
@@ -366,8 +364,6 @@ public class DB_Util {
         }finally {
             resetCursor();
         }
-
-
         return rowMap ;
     }
     /**
@@ -386,12 +382,31 @@ public class DB_Util {
 
             Map<String,String> rowMap = getRowMap(rowIndex);
             allRowLstOfMap.add( rowMap ) ;
-
         }
         resetCursor();
 
         return allRowLstOfMap ;
+    }
 
+
+    public static List<List<Object>> getQueryResultList(String query) {
+        runQuery(query);
+        List<List<Object>> rowList = new ArrayList<>();
+        ResultSetMetaData rsmd;
+        try {
+            rsmd = rs.getMetaData();
+            while (rs.next()) {
+                List<Object> row = new ArrayList<>();
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    row.add(rs.getObject(i));
+                }
+                rowList.add(row);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return rowList;
     }
 
 

@@ -33,7 +33,8 @@ public class BookitUtils {
         String token = given()
                 .queryParams(returnCredentials(role))
                 .when().get(Environment.BASE_URL + "/sign")
-                .then().statusCode(200).extract().response().path("accessToken");
+                .then().statusCode(200)
+                .extract().response().path("accessToken");
 
 
         return "Bearer " + token;
@@ -58,8 +59,8 @@ public class BookitUtils {
                 email = Environment.LEADER_EMAIL;
                 password = Environment.LEADER_PASSWORD;
                 break;
-            default:
 
+            default:
                 throw new RuntimeException("Invalid Role Entry :\n>> " + role + " <<");
         }
         Map<String, String> credentials = new HashMap<>();

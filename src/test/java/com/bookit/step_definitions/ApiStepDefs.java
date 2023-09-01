@@ -29,10 +29,7 @@ public class ApiStepDefs {
         System.out.println("token = " + token);
 
         Map<String, String> credentialsMap = BookitUtils.returnCredentials(role);
-
         emailGlobal = credentialsMap.get("email");
-
-
     }
 
     @When("I sent get request to {string} endpoint")
@@ -46,7 +43,6 @@ public class ApiStepDefs {
         System.out.println("response.statusCode() = " + response.statusCode());
         //verify status code
         Assert.assertEquals(expectedStatusCode,response.statusCode());
-
     }
 
     @Then("content type is {string}")

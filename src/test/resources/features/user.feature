@@ -1,6 +1,6 @@
 Feature: User Verification
 
-@wip
+
   Scenario: verify information about logged user
     Given I logged Bookit api as a "team-member"
     When I sent get request to "/api/users/me" endpoint
@@ -23,7 +23,7 @@ Feature: User Verification
     When I sent get request to "/api/users/me" endpoint
     Then UI,API and Database user information must be match
 
-  @wip @db @ui
+  @db @ui @wip
   Scenario Outline: three point/layer (UI,API,DATABASE) <role>
     Given user logs in using "<role>" credentials
     And user is on the my self page

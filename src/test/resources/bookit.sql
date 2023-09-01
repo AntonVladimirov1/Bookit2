@@ -1,2 +1,4 @@
 select firstname,lastname,role from users
-where email ='raymond@cydeo.com';
+where email ='teacherilsamnickel@gmail.com';
+
+select firstname,lastname,role from users;
