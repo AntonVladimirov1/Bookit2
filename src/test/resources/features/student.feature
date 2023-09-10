@@ -3,11 +3,11 @@ Feature: Create Student
 
   Scenario: Create student as a teacher and verify status code is 201
     Given I logged Bookit api as a "teacher"
-    When I send POST request "/api/students/student" endpoint with following information
-      | first-name      | Harold              |
-      | last-name       | Finch               |
-      | email           | hfinchs@cydeo.com    |
-      | password        | abc123              |
+    When I send POST request "/api/students/student" endpoint with following student information
+      | first-name      | Mashka              |
+      | last-name       | Sidorova            |
+      | email           | mashka@pups.com     |
+      | password        | mashka              |
       | role            | student-team-member |
       | campus-location | VA                  |
       | batch-number    | 8                   |
